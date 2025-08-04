@@ -58,7 +58,7 @@
             background: white;
             border: 2px solid hotpink;
             border-radius: 17px;
-            display: none;
+            /* display: none; */
             position: absolute;
             z-index: 100;
         }
@@ -245,14 +245,17 @@
 <body>
     <script>
         <?php
+
         $token = '---';
+
+
         $cities = [
             'Moscow' => [
                 'name' => 'Москва',
                 'phone' => '555-55-55'
             ],
             'Samara' => [
-                'name' => 'Самара',
+                'name' => 'Самара1',
                 'phone' => '333-33-33'
             ],
             'Ufa' => [
@@ -261,11 +264,10 @@
             ]
         ];
         ?>
-
-      
         var citySelect = null;
         var changeUser = false;
-      
+
+
         function setDigits(digits) {
             $('.digits').text(digits);
         }
@@ -313,7 +315,7 @@
     </div>
     <div id="main" class="p-15">
         <div id="info">
-            Ваш город <span id="ask-city"></span>?
+            Ваш город <span id="ask-city">Москва</span>?
             <div class="btns">
                 <div class="btn btn-ok" onclick="removeInfo()">Да</div>
             </div>
@@ -353,8 +355,8 @@
             $('#info').show();
             option.prop('selected', true);
             citySelect.trigger('change');
-            changeUser = true;
         }
+        changeUser = true;
         })
         .catch(error => console.log("error", error));
     </script>
